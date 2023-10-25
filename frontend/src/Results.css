@@ -1,0 +1,44 @@
+/* Results Container */
+.results-container {
+    width: 75%;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin: auto;
+   height: 100%;
+  }
+  
+
+  .movie-container{
+    width: 35%;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    clear: both; /* Ensure the buttons are below the movie cards */
+  }
+  
+  .pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #007bff;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .pagination button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }

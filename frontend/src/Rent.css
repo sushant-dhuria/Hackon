@@ -1,0 +1,63 @@
+/* MovieCard.css */
+.rent-movies{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-rent-card {
+    display: flex;
+    flex-direction: column;
+    background-color:  #fff;
+    border-radius: 5px;
+    width: 25%;
+    height: auto;
+    margin: 40px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+   .movie-image img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .movie-details {
+    flex: 1;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  .movie-title {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .movie-rating {
+    color: #ff9900; /* Rating star color */
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+  
+  .movie-price{
+    margin-top: 10px;
+  }
+  
+  .rental-button{
+    background-color: #0074D9; /* Blue shade for the button */
+    color: #FFFFFF; /* Text color for the button */
+    padding: 10px 15px; /* Adjust the padding to your preference */
+    border: none; /* Remove button border */
+    border-radius: 10px; /* Rounded borders */
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    font-weight: bold;
+    padding: 8px 12px;
+  }
+
+  .rental-button:hover {
+    background-color: #0056A4; /* New background color on hover */
+  }
+  

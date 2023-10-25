@@ -1,0 +1,28 @@
+.timestamp-main{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.searchbar{
+    width: 80%;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+   margin-top: 4%;
+   margin-bottom: 4%;
+}
+
+.searchbar input{
+    width: 95%;
+}
+
+.searchbar button{
+    background-color: #3498DB;
+    color: white;
+    border: 1px solid #3498DB;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

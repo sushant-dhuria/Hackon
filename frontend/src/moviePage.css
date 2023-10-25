@@ -1,0 +1,44 @@
+.playlist{
+    display: flex;
+    justify-content: baseline;
+flex-direction: column;
+width: 100%;
+overflow-x: scroll;
+}
+
+.movie-card-container{
+    display: flex;
+justify-content: space-between;
+
+}
+
+.movie-page h2{
+margin-top:4%;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-transform: capitalize;
+font-size: 2.5rem;
+color: white;
+margin-left: 2%;
+}
+
+/* Target the scrollbar track */
+::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+  }
+  
+  /* Target the scrollbar thumb (the part that you drag) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set the color of the thumb */
+    border-radius: 6px; /* Round the corners of the thumb */
+  }
+  
+  /* Target the scrollbar track on hover */
+  ::-webkit-scrollbar {
+    background-color: #aaa; /* Change the color on hover */
+  }
+  
+  /* Target the scrollbar thumb on hover */
+  ::-webkit-scrollbar-thumb{
+    background-color: #555; /* Change the thumb color on hover */
+  }
+  
