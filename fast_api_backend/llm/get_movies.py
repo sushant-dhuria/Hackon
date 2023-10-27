@@ -1,9 +1,11 @@
 import openai
 import json
-
+import os
+from dotenv import load_dotenv
+load_dotenv('.env')
 QA_PROMPT = """Based on the chat history given below
 {chat_summary}
-You need to fill in the JSON object given below,The filled entries should be generic enough to cover wide ranges of movies and not only one movie,Keep a key empty if nothing can be extracted for a particular key:-
+You need to fill in the JSON object given below,Keep a key empty if nothing can be extracted for a particular key:-
 {{
     "date_published":{{
         "greater_than":"",
@@ -17,7 +19,7 @@ You need to fill in the JSON object given below,The filled entries should be gen
     "actors":[],
     "keywords":[],
     "Director":[],
-    "chat_summary":[],
+    "chat_summary":"",
     "RatingValue":{{
         "greater_than":"",
         "less_than":""
@@ -43,12 +45,12 @@ Based  on the titles given, Please suggest a name for the playlist:
 {titles}
 
 Return response in json with "name" as the key"""
-openai.api_key = os.environ.get("OPENAI_API_KEY"),
-
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 def get_response(chat_history):
     print(chat_history)
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
+    temperature=0,
     messages=[
         {"role": "user", "content": QA_PROMPT.format(chat_summary=str(chat_history))}
     ]

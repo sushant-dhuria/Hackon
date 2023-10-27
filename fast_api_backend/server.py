@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from utils import get_user_chat_history
 from llm.get_movies import get_response
 from queries.query import fetch_results,get_movie_by_id,recommend_movie_by_id, get_playlist_by_id, get_by_plot
+from caption_search.add_data import add_video_captions
 app = FastAPI()
 origins = ["*"]  # Adjust this to specify the origins you want to allow (e.g., ["http://localhost:3000"])
 
@@ -21,6 +22,8 @@ async def check_product(request: Request):
     user_chat_history = get_user_chat_history(chat_history)
     resp = get_response(user_chat_history)
     results = fetch_results(resp)
+    if results==[]:
+        resp['answer'] = 'None of the movies in the database match this information'
     return {"answer": resp['answer'],'results':results}
 
 @app.get("/movies/{movie_id}")
@@ -48,7 +51,12 @@ async def check_plot(request: Request):
     print(data)
     # print(get_by_plot(query)) 
     return {'timestamp':0}
-
+@app.post("/get_link")
+async def check_plot(request: Request):
+    data = await request.json()
+    add_video_captions(data['videolink'])
+    # print(get_by_plot(query)) 
+    return "Done"
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=5000)
