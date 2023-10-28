@@ -14,6 +14,7 @@ const Navbar = () => {
           <ul>
         <li><Link to="/">Watch Movie</Link></li>
         <li><Link to="/plotsearch">Plot Search</Link></li>
+        {/* <li><Link to="/searchTimeStamp">caption Search</Link></li> */}
       </ul>
       </div>
     </nav>
