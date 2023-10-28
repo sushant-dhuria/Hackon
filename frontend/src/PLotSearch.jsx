@@ -44,7 +44,15 @@ const PLotSearch = () => {
   return (
     <div>
       <div className="ploatsearch-main">
-        <Projector />
+        <div className='hero-section'>
+          <div className='hero-desc'>
+            <h1>Search a Movie by Plot</h1>
+            <p>Welcome to our movie discovery platform, where finding your favorite films is as easy as describing their plots. Simply input the storyline, and we'll work our cinematic magic to match you with movies that fit your description. Unleash your inner film critic and start exploring the world of cinema, one plot at a time.</p>
+          </div>
+          <div className='hero-img'>
+            <img src='OIP.jpeg'/>
+          </div>
+        </div>
         <div className="searchbar">
           <input
             type="text"
