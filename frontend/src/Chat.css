@@ -1,24 +1,40 @@
 /* Chat Container */
 .chat-container {
+  position: fixed;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 90vh;
-    background-color: #f2f2f2;
+    width: 25%;
+    height: 80vh;
+    background-color: #fff;
+    align-items: center;
+    margin: 0 1rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .chat-heading{
+    width: 91%;
+    background-color: #0074D9;
+    margin: 0;
+    margin-bottom: 1rem;
+    padding: 16px;
+    text-align: center;
+    color: white;
   }
   
   /* Chat Messages */
   .chat-messages {
     flex: 1;
+    width: 90%;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     overflow-y: auto;
   }
   
   /* User Message Style */
   .user-message {
-    background-color:  #3498DB;
+    background-color:  #0074D9;
     color: white;
     border-radius: 5px;
     padding: 10px;
@@ -36,7 +52,7 @@
     height: 0;
     border-style: solid;
     border-width: 0 20px 20px 0; /* Adjust to control the size and shape of the triangle */
-    border-color: transparent #3498DB transparent transparent; /* Triangle color matches background */
+    border-color: transparent #0074D9 transparent transparent; /* Triangle color matches background */
     z-index: 1;
   }
   
@@ -67,7 +83,8 @@
   /* Chat Input Style */
   .chat-input {
     display: flex;
-    background-color: #f2f2f2;
+    width: 94%;
+    background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
     align-items: center;
@@ -83,7 +100,7 @@
   }
   
   .chat-input button {
-    background-color: #3498DB; /* Light blue background for the send button */
+    background-color: #0074D9; /* Light blue background for the send button */
     color: white; /* White text color for the send button */
     border: none;
     border-radius: 20px;
@@ -96,4 +113,43 @@
   .chat-input button:hover {
     background-color: #303F9F;
   }
+  
+
+  .chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    transition: max-height 0.3s, width 0.3s, opacity 0.3s;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .chatbot-container.open {
+    max-height: 400px; /* Adjust this value for the desired chatbot height */
+    width: 300px;
+    opacity: 1;
+  }
+  
+  .toggle-button {
+    background: #0074D9;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0;
+  }
+  
+  .chatbot-content {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
   

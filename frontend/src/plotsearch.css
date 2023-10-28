@@ -1,0 +1,51 @@
+.hero-section{
+    padding: 48px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hero-desc h1{
+    font-size: 2.5rem;
+}
+
+.hero-img img{
+    border-radius: 16px;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    background: #f2f2f2; /* Background color */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling the Search Input */
+  .searchbar input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  /* Styling the Search Button */
+  .searchbar button {
+    background: #0074D9; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px; /* Add spacing between input and button */
+    transition: all 0.3s; /* Add a smooth hover effect */
+  }
+  
+  /* Hover effect for the Search Button */
+  .searchbar button:hover {
+    background: #0056b3; /* Change background color on hover */
+  }

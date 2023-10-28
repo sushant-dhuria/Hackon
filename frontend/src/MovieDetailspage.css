@@ -13,10 +13,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    border-radius: 16px;
+    overflow: hidden;
 }
 .poster-image img{
    width: 65%;
    height: 80%;
+   border-radius: 16px;
+   box-shadow: 0 4px 40px rgba(0, 51, 153, 0.3);
 }
 /* Styles for the grid collage container */
 /* Styles for the grid collage container */
@@ -54,6 +58,14 @@
     cursor: pointer;
   }
 
+  .cluster-section{
+    padding: 48px;
+  }
+
+  .movie-details-page{
+    color: white;
+  }
+
   .movie-details__info{
     display: flex;
     flex-direction: row;
@@ -64,13 +76,59 @@
     flex: 1;
   }
 
-  .movie-details-page{
-    background-color: #f5f5f5;
-  }
-
   .movie-details__title{
     font-size: 4rem;
     margin: 0;
   }
-  
-  
+
+  .movie-details__rating{
+    display: flex;
+    align-items: center;
+  }
+
+  .movie-details__genres{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .movie-details__genres span{
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 16px;
+    margin-right: 8px;
+  }
+
+  .movie-details__cast{
+    margin-top: 16px;
+  }
+
+  .movie-details-button{
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White font color */
+    border: 1px solid #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0px;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center; 
+  }
+
+  .movie-details-button:hover{
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 0 40px rgba(0, 116, 217, 0.7);
+  }
+
+  ::-webkit-scrollbar {
+    background-color: #100F0F;
+}

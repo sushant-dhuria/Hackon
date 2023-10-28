@@ -27,7 +27,6 @@ const MovieInfo = ({ name , icon, value }) => (
 const MovieCard = ({ infos }) => {
  console.log(infos)
   return (
-    <div className='movie-container'>
       <div className='movie-card'>
         <div className='movie-card-front'>
           <img src={infos.poster_link} alt={infos.title} />
@@ -35,13 +34,11 @@ const MovieCard = ({ infos }) => {
         <div className='movie-card-back'>
           <h2 className='movie__title'>{infos.title}</h2>
           <div className='movie__infos'>
-            <MovieInfo  name='duration' icon={<TimelapseIcon/>} value={infos.duration} />
-            <MovieInfo name='director' icon={<NestCamWiredStandIcon/>} value={infos.director} />
+            <MovieInfo  name='duration' icon={<TimelapseIcon/>} value={`${infos.duration} mins`} />
             <Rating icon={<StarRateIcon/>} rating={infos.rating} />
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

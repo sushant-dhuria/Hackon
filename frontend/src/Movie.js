@@ -7,7 +7,7 @@ import './Movie.css';
 const Rating = ({ icon , rating }) => {
   return (
     <div className="movie__rating">
-      <span>{icon}</span>
+      <span className='movie__rating-icon'>{icon}</span>
       <span>{rating}</span>
     </div>
   );
@@ -30,7 +30,6 @@ const Movie = ({ infos }) => {
   // ));
 
   return (
-    <div className='movie-container'>
       <div className='movie-card'>
         <div className='movie-card-front'>
           <img src={infos.poster_link} alt={infos.title} />
@@ -38,13 +37,11 @@ const Movie = ({ infos }) => {
         <div className='movie-card-back'>
           <h2 className='movie__title'>{infos.title}</h2>
           <div className='movie__infos'>
-            <MovieInfo  name='duration' icon={<TimelapseIcon/>} value={infos.duration} />
-            <MovieInfo name='director' icon={<NestCamWiredStandIcon/>} value={infos.director} />
-            <Rating icon={<StarRateIcon/>} rating={infos.rating_value} />
+            <MovieInfo  name='duration' icon={<TimelapseIcon/>} value={`${infos.duration} mins`} />
+            <Rating icon={<StarRateIcon/>} rating={infos.rating} />
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

@@ -51,6 +51,7 @@ const Chat = ({ onChatSubmit }) => {
 
   return (
     <div className="chat-container">
+      <h2 className='chat-heading'>Search a Movie</h2>
       <div className="chat-messages">
         {console.log(messages)}
         {messages.map((message, index) => (

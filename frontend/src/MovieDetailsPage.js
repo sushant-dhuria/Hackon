@@ -4,6 +4,9 @@ import MovieCard from './MovieCard';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './MovieDetailspage.css';
+import StarsIcon from '@mui/icons-material/Stars';
+import MovieIcon from '@mui/icons-material/Movie';
+import ShopIcon from '@mui/icons-material/Shop';
 
 const MovieDetailsPage = () => {
   let { state } = useLocation();
@@ -21,7 +24,10 @@ const MovieDetailsPage = () => {
     // Fetch movie details using Axios based on the movieId
     axios
       .get(`http://localhost:5000/movies/${movieId}`)
-      .then((response) => setMovieDetails(response.data))
+      .then((response) => {
+        console.log(response.data)
+        setMovieDetails(response.data)
+      })
       .catch((error) => console.error('Error fetching movie details:', error));
 
     // Fetch recommended movies based on the movieId
@@ -57,19 +63,43 @@ const MovieDetailsPage = () => {
     }
   };
 
+  const actors = ["Shahrukh Khan" , "Alia Bhatt" , "Abhinav" , "Sushant Dhuria"];
+  const genres = ['Action' , 'Horror' , 'Thriller' , 'Comedy' , 'Fiction'];
+
   return (
     <div className="movie-details-page">
       {movieDetails && (
         <div className="movie-details__info">
           <div className="movie-details__desc">
             <h1 className="movie-details__title">{movieDetails.title}</h1>
+            <div className='movie-details__rating'>
+              IMDB Rating: 
+              <StarsIcon style={{ color: '#FFC300'  , paddingLeft: '8px'}}/>
+              <span>{movieDetails.rating}</span>
+            </div>
+            <p className="movie-details__director">Directed by:  {movieDetails.director}</p>
+            {/* <div className='movie-details__genres'>
+                  {movieDetails.genres?.map((genre) => {
+                    return <span>{genre}</span>;
+                  })}
+            </div>
+            <div className='movie-details__cast'>
+                  Cast: {movieDetails.actors?.join(' , ')}
+            </div> */}
             <p className="movie-details__description">{movieDetails.description}</p>
-            <p></p>
-            {movieDetails.rentPrice && (
+            <button className='movie-details-button watch-button'>
+              <MovieIcon style={{marginRight: '8px'}}/>
+              Watch Now
+            </button>
+            {/* {movieDetails.rentPrice && (
               <button className="rent-button">
                 Rent for ${movieDetails.rentPrice}
               </button>
-            )}
+            )} */}
+              <button className="movie-details-button rent-button">
+                <ShopIcon style={{marginRight: '8px'}}/>
+                Rent for ${movieDetails.rentPrice}
+              </button>
           </div>
           <div className="poster-image">
             <img src={movieDetails.poster_link} alt={movieDetails.title} />
@@ -77,7 +107,8 @@ const MovieDetailsPage = () => {
         </div>
 )}
 
-      <h3>Recommended Movies:</h3>
+    <div className='cluster-section'>
+      <h1>Recommended Movies:</h1>
 
       <div className="recommended-movie-overlay" onClick={() => setRecommendedContainerVisible(!isRecommendedContainerVisible)}>
         <div className="recommended-movie-collage" ref={recommendedContainerRef}>
@@ -97,7 +128,9 @@ const MovieDetailsPage = () => {
           {recommendedMovies.map((movie) => (
             <div key={movie.id} className="movie">
               <Link to={`/movie/${movie.id}`} state={{ movieId: movie.id }}>
+                <div className='movie-container'>
                 <MovieCard infos={movie} />
+                </div>
               </Link>
             </div>
           ))
@@ -105,7 +138,7 @@ const MovieDetailsPage = () => {
         </div>
 )}
 
-      <h3>Playlists:</h3>
+      <h1>Playlists:</h1>
       <div className="playlists-container">
         {playlists.map((playlist) => (
           <Playlist
@@ -116,6 +149,7 @@ const MovieDetailsPage = () => {
         }
       </div>
     </div>
+  </div>
   );
 };
 
@@ -150,7 +184,9 @@ function Playlist({ playlist }) {
           {playlist.movies.map((playlistMovie) => (
             <div key={playlistMovie.id} className="playlist-movie">
               <Link to={`/movie/${playlistMovie.id}`} state={{ movieId: playlistMovie.id }}>
+                <div className='movie-container'>
                 <MovieCard infos={playlistMovie} />
+                </div>
               </Link>
             </div>
           ))}
