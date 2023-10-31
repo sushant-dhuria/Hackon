@@ -18,8 +18,9 @@ const Chat = ({ onChatSubmit }) => {
 
     // Clear the input field
     SpeechRecognition.stopListening();
-
     resetTranscript();
+    
+
     setListening(false);
     setNewMessage('');
     // Call the API for a response
